@@ -1,0 +1,8 @@
+C:\Users\Максим\Downloads\Домашка\bin\Debug\Домашка.exe.config
+C:\Users\Максим\Downloads\Домашка\bin\Debug\Домашка.exe
+C:\Users\Максим\Downloads\Домашка\bin\Debug\Домашка.pdb
+C:\Users\Максим\Downloads\Домашка\obj\Debug\Домашка.csproj.AssemblyReference.cache
+C:\Users\Максим\Downloads\Домашка\obj\Debug\Домашка.csproj.SuggestedBindingRedirects.cache
+C:\Users\Максим\Downloads\Домашка\obj\Debug\Домашка.csproj.CoreCompileInputs.cache
+C:\Users\Максим\Downloads\Домашка\obj\Debug\Домашка.exe
+C:\Users\Максим\Downloads\Домашка\obj\Debug\Домашка.pdb
