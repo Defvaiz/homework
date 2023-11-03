@@ -2,13 +2,178 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Permissions;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Домашка
 {
     internal class Program
     {
+        /*
+         определение метода:
+        public static ТипВозвращаемоегоЗначения ИмяМетода(список параметров в виде перечисления объявлений переменных через запятую)
+        {
+            //тело метода
+            //если ТипВозвращаемоегоЗначения не void, то обязательно должен быть return результат;
+        }
+        public static int GetMax(int[] array)
+         
+           вызов метода:
+           ИмяМетода(); - если нет параметрво
+           ИмяМетода(значения без указания типа, через запятую);
+           если ТипВозвращаемоегоЗначения не void, то можем присвоить вызов метода какой-то переменной
+           int a = GetMax(какой то массив);
+           int [] array = new int[5]; 
+           for(int i = 0; i < 5; i++){ заполняем массив }
+           
+            int bb = GetMax(array);                                                                           :)
+
+         */
+        public static int[] Array54(int[] array)
+        {
+            int[] result = new int[array.Length];
+            int count = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] % 2 == 0)
+                {
+                    result[count] = array[i];
+                    count++;
+                }
+            }
+            int[] B = new int[count];
+            Array.Copy(result, B, count);
+            return B;
+
+        }
+
+
+
+        public static int Array51(int[] a, int[] b)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                int swap = a[i];
+                a[i] = b[i];
+                b[i] = swap;
+            }
+            return a.Length;
+            
+        }
+
+
+
+        public static int Array20(int[] a, int k, int l)
+        {
+            int count = 0;
+
+            for (int i = k; i <= l; i++)
+            {
+                count+= a[i];
+            }
+            return count;
+        }
+
+
+        public static int Array19(int[] a)
+        {
+            
+
+            for (int i = a.Length-1; i > 0; i--)
+            {
+                
+                if (a[0] < a[i] && a[i] < a[a.Length - 1])
+                    return i;
+                
+            }
+            return 0;
+        }
+
+        public static int Array7(int[] a)
+        {
+            var temp = 0;
+
+            for (var i = 0; i < a.Length / 2; i++)
+            {
+                temp = a[i];
+                a[i] = a[a.Length-i-1];
+                a[a.Length-i-1] = temp;
+     
+            }
+            
+            return temp;
+        }
+
+
+        public static int Array2(int[] a)
+        {
+            int count = 0;
+            a[0] = 1;
+            a[1] = 1;
+
+            for (int i = 2; i < a.Length; i++)
+            {
+               
+                a[i] = a[i-1] + a[i-2];  
+                count = a[i];
+                
+            }
+            return count;
+        }
+
+        public static int Array1(int[] a)
+        {
+            int count = 0;
+          
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] = 2 * i + 1;
+                count = a[i];
+            }
+            return count;
+        }
+
+
+
+        //MinMax2
+        public static int RectangleMin(int N, int[] a, int[] b)
+        {
+            int area = a[0] * b[0];
+            for (int i = 0; i < N; i++)
+            {
+                int minarea = a[i] * b[i];
+                if (minarea < area)
+                    area = minarea;
+            }
+            return area;
+        }
+       
+
+        //MinMax4
+        public static int GetMin(int index, int[] a)
+        {
+           
+            int minindex  = 0;
+            int minvalue = a[0];
+            
+
+            for (int i = 1; i < a.Length; i++)
+            {
+                if (a[i] < minvalue)
+                {
+                    minindex = i;
+                    minvalue = a[i];
+                    
+                }
+  
+            }
+            return minindex;
+            
+ 
+        }
         static void Proc1()
         {
             float A, B;
@@ -411,8 +576,131 @@ namespace Домашка
 
         static void Main(string[] args)
         {
-            Proc1();
+            //     Array 54
+            int[] A = {1,2,3,4,5,6,7,8,9,10};
+            int[] B = Array54(A);
+            Console.WriteLine("Размер массива B ="+ B.Length);
+
+            foreach (int num in B)
             
+                Console.WriteLine(num);
+            
+            
+
+
+
+
+            //      Array 51
+            //int[] a = { 1, 2, 3 };
+            //int[] b = { 4, 5, 6 };
+            //Array51(a, b);
+            //foreach (int num in a)
+            //Console.WriteLine("= "+ num);
+            //foreach (int num in b)
+            //Console.WriteLine("="+ num);
+
+
+            //     Array 20
+            //int[] a = {1,2,3,4,5,6,7,8,9,10};
+            //int sum = Array20(a, 3, 7);
+            //Console.WriteLine("= "+ sum);
+
+
+
+            //      Array 19
+            //int[] a = {1,2,3,4,5,6,7,8,9,10};
+            //int result = Array19(a);
+
+            //Console.WriteLine("= "+ result);
+
+
+            //     Array 7
+            //int[] a = {1,2,3,4,5};
+
+            //Array7(a);
+            //foreach (int num in a)
+            //{
+            //Console.WriteLine("= "+ num);
+            //}
+
+
+            //      Araay2
+            //Console.WriteLine("Введите значение N: ");
+            //int n = int.Parse(Console.ReadLine());
+            //int[] a = new int[n];
+            //for (int i = 0; i < a.Length; i++)
+            //a[i] = Array2(a);
+            //foreach (int num in a)
+            //{
+            //Console.WriteLine("= "+ num);
+            //}
+
+
+            //       Array1 
+            //Console.WriteLine("Введите значение N: ");
+            //int n = int.Parse(Console.ReadLine());
+            //int[] a = new int[n];
+            //for (int i = 0; i < a.Length; i++)
+            //a[i] = Array1(a);
+            //foreach (int num in a)
+            //{
+            //Console.WriteLine("= "+ num);
+            // }
+
+
+
+            //       MinMax 4
+            //int index = 0;
+            //int[] a = new int[5];
+            //var generator = new Random();
+            //for (int i = 0; i < a.Length; i++)
+            //a[i] = generator.Next(100);
+
+
+            //foreach (int num in a)
+            //{
+            //Console.WriteLine(" = " + num);
+            //}
+
+
+
+
+
+            //int m = GetMin(index, a);
+
+
+
+
+
+            //Console.WriteLine("Номер минимального элемента = "+m);
+
+
+            //       MinMax2
+            //int N = 5;
+            //int[] a = new int[5];
+            //int[] b = new int[5];
+
+            //var generator = new Random();
+            //for (int i = 0; i < a.Length; i++)
+            //a[i] = generator.Next(100);
+
+            //foreach (int num in a)
+            //{
+            //Console.WriteLine("A = "+ num);
+            //}
+            //for (int i = 0; i < b.Length; i++)
+            //b[i] = generator.Next(100);
+
+            //foreach (int num in b)
+            //{
+            //Console.WriteLine("B = "+num);
+            //}
+            //int m = RectangleMin(N,a,b);
+
+            //Console.WriteLine("Минимальная площадь "+m);
+
+
+
             Console.ReadKey();
 
 
